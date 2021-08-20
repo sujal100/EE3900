@@ -19,11 +19,18 @@ A = np.array([2,3,4]).reshape((3,1))
 B = np.array([-1,-2,1]).reshape((3,1))
 C = np.array([5,8,7]).reshape((3,1))
 
+M = dir_vec(B,A)
+M = np.append(M,dir_vec(C,A),axis = -1)
+
+if np.linalg.matrix_rank(M) == 1:
+    print("point are collinear")
+else:
+    print("point are not collinear")
+    
 #Generating all lines
 x_AB = line_gen(A,B)
 x_BC = line_gen(B,C)
 x_CA = line_gen(C,A)
-
 #plotting line
 plt.plot(x_AB[0,:],x_AB[1,:],x_AB[2,:],label="AB")
 plt.plot(x_BC[0,:],x_BC[1,:],x_BC[2,:],label="BC")
@@ -40,4 +47,4 @@ ax.text(5,8,7, "C", color='red')
 #save plot
 plt.xlabel('$x$');plt.ylabel('$y$')
 plt.legend(loc='best');plt.grid()
-plt.savefig('../Figures/Plot.png')
+plt.savefig('../figures/Plot.png')
