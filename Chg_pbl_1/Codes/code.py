@@ -26,14 +26,10 @@ def is_parallogram(a,b,c,d):
     t = (a+c)/2
     u = (b+d)/2
     
-    # concatenate all calculated mid-points
-    vec = np.concatenate((p,q,r,s,t,u), axis = -1)
-    
     # checking if two mid-points are coincidence
-    for i in range(6):
-        for j in range(6):
-            if (np.array_equal(vec[:,i],vec[:,j]) and (i!=j)):
-                return True
+    if (((p == r).all() or (q == s).all() or (t == u).all())):
+        return True
+    
     return False
 
 
