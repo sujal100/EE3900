@@ -32,7 +32,7 @@ def is_parallogram(a,b,c,d):
     # checking if two mid-points are coincidence
     for i in range(6):
         for j in range(6):
-            if (np.array_equal(vec[:,i],vec[:,j])and (i!=j)):
+            if (np.array_equal(vec[:,i],vec[:,j]) and (i!=j)):
                 return True
     return False
 
