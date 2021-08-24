@@ -157,24 +157,36 @@ The given information can be expressed as
     \\
     &\norm{\vec{I}-\vec{S}} = 6.5 = b \label{eq 5}
     \end{align}
- Let, 
+Let, 
 \begin{align}
 &\vec{M}=\myvec{0\\0},\vec{I}=\myvec{a\\0}
 \end{align}
-and Angle between ST and +x-axis is $\theta$
+and first calculate Angle between $ST$ and +x-axis is
 \begin{align}
 \theta &= 360\degree - (\beta + \gamma)\\
        &= 360\degree - (105\degree + 120\degree)\\
        &= 135\degree \label{eq a}
 \end{align}
 and we have to find $\vec{S}$ and $\vec{T}$.
+So, For $\vec{S}$, 
 \begin{lemma}
 \begin{align}
-&\vec{S} =\vec{I} + b\vec{X} \text{ where } \vec{X} = \myvec{\cos (180\degree -\angle I)\\\sin (180\degree -\angle I)} \label{eq b}\\
+\vec{S} =\vec{I} + b\vec{X} \text{ where } \vec{X} = \myvec{\cos (180\degree -\angle I)\\\sin (180\degree -\angle I)} \label{eq b}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+here, $\vec{X}$ is unit vector in direction of line $IS$ and then multiply it with $b$ which is magnitude of line $IS$ and last adding $\vec{I}$.
+\end{proof}
+\begin{lemma}
+\begin{align}
 &\vec{T} = x\vec{Y} \text{ where } \vec{Y} = \myvec{\cos\alpha\\\sin \alpha}\text{ and } x \in R^{+} \label{eq c}\\
 &\text{Also,} \vec{T} = y\vec{Z}+\vec{S} \text{ where } \vec{Z} =  \myvec{\cos\theta\\\sin\theta} \text{ and }y \in R^{+} \label{eq d}
 \end{align}
 \end{lemma}
+\begin{proof}
+First, in equation \eqref{eq c} $\vec{Y}$ is unit vector in direction of line $MT$, and we need to find $x$ which is magnitude of line $MT$. Also, we use $\vec{S}$ to find $\vec{T}$ as in equation \eqref{eq d} $\vec{Z}$ is unit vector in direction of line $ST$
+\end{proof}
 Thus, 
 from  \eqref{eq 2} and \eqref{eq 5} in \eqref{eq b},
 \begin{align}
