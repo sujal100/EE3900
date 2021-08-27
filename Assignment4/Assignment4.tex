@@ -163,7 +163,7 @@ The lines will intersect if
 \\
 \implies \lambda_1\myvec{7 \\ -6 \\1} - \lambda_2\myvec{1 \\ -2 \\1} &= \myvec{3\\5\\7}-\myvec{-1\\-1\\-1}  
 \\
-\implies \myvec{7 & 1 \\ -6 & -2 \\ 1 & 1}\myvec{\lambda_1\\ \lambda_2} = \myvec{4\\6\\8}
+\implies \myvec{7 & 1 \\ -6 & -2 \\ 1 & 1}\myvec{\lambda_1\\ \lambda_2} = \myvec{4\\6\\8}\label{condition}
 \end{align}
 Row reducing the augmented matrix,
 \begin{align}
@@ -210,9 +210,23 @@ Row reducing the augmented matrix,
 }
 \end{align}
 The above matrix has $rank = 3$.  Hence, the lines do not intersect.  Note that the lines are not parallel but they  lie on parallel planes.  Such lines are known as {\em skew} lines as can be seen in Fig \ref{skew_lines}.\\
-$\therefore$ The distance between given two lines is 
+$\therefore$ The distance between given two lines is (using  equation \eqref{condition})
 \begin{align}
-\frac{\abs{\brak{\vec{A}_2-\vec{A}_1}^T\brak{\vec{m}_1\times\vec{m}_2}}}{\norm{\vec{m}_1\times\vec{m}_2}} = 10.77
+\norm{\myvec{7 & 1 \\ -6 & -2 \\ 1 & 1}\myvec{\lambda_1\\ \lambda_2} - \myvec{4\\6\\8}}
+\end{align}
+We know that, the minimizer of $\norm{\vec{A}\vec{x} - \vec{B}}$ is given by the solution to the normal equations $\vec{A}^{T}\vec{A}\vec{x} = \vec{A}^{T}\vec{B}$. Since
+\begin{align}
+\myvec{7 & 1 \\ -6 & -2 \\ 1 & 1}^{T}\myvec{7 & 1 \\ -6 & -2 \\ 1 & 1} &= \myvec{86 & 20 \\ 20 & 6}\\
+\myvec{7 & 1 \\ -6 & -2 \\ 1 & 1}^{T}\myvec{4\\6\\8} &= \myvec{0 \\ 0}
+\end{align}
+the normal equations give us the following system of equations
+\begin{align}
+\myvec{86 & 20 \\ 20 & 6}\myvec{\lambda_1\\ \lambda_2} = \myvec{0 \\ 0}
+\end{align}
+whose solution is $\myvec{\lambda_1\\ \lambda_2} = \myvec{0\\ 0}$. The minimum distance between this two lines is, thus,
+\begin{align}
+\norm{\myvec{7 & 1 \\ -6 & -2 \\ 1 & 1}\myvec{0 \\ 0} - \myvec{4\\6\\8}} &= \norm{\myvec{4\\6\\8}}\\
+																		 &= \sqrt{116}
 \end{align}
 \begin{figure}[!ht]
 \includegraphics[width=\columnwidth]{plot.png}
