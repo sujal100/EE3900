@@ -150,21 +150,15 @@ https://github.com/https://github.com/sujal100/EE3900/
 \caption{(b)}
 \end{figure}
 \section{Solution}
-We have the input signal $$x(t)=m(t) \cos (2400 \pi t) = m(t) \cos (\omega t)$$
-And, $\omega=2400 \pi$ rad then, $ f = 1200 $ Hz
+We have the input signal $$x(t)=m(t) \cos (2400 \pi t) = m(t) \cos (\omega t)$$ 
+Take m(t) to be a sinusoid with bandwidth $W$. But $m(t)$ is low-pass signal. So, $\omega=2400 \pi$ rad then, $ f = 1200 $ Hz.
 \begin{align}
 y(t) &= 10 x(t)+x^{2}(t)\\
      &= 10 m(t) \cos (2400 \pi t)+m^{2}(t) \cos ^{2}(2400 \pi t) \\
      &= 10 m(t) \cos (\omega t)+ m^{2}(t)\left[\frac{\cos (2 \omega t)+1}{2}\right]\\
      &=\underbrace{\frac{m^{2}(t)}{2}}_{\text {+we frequency }}+\underbrace{10 m(t) \cos (\omega t)}_{[\omega-W, \omega+W]}+\underbrace{\frac{m^{2}(t) \cos (2 \omega t)}{2}}_{[2 \omega-2 W, 2 \omega+2 W]}
 \end{align}
-If a signal x(t) is multiplied by a sinusoidal signal then the Fourier transform of x(t) gets shifted by the frequency of the sinusoid.\\
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\columnwidth]{sol_1.png}
-\caption{Frequency plot}
-\end{figure}
-So, From the frequency plot, we conclude the following results.
+If a signal x(t) is multiplied by a sinusoidal signal then the Fourier transform of x(t) gets shifted by the frequency of the sinusoid. So, From the frequency plot in fig. \ref{freq}, we conclude the following results.
 \begin{align}
 \text {Results 1 : }&\omega-W>700 \\
 & 1200-W>700 \\
@@ -182,4 +176,10 @@ So, From the frequency plot, we conclude the following results.
 \end{align}
 Thus, the above conclusions result in $W < 350$.\\
 For $z(t)=10 x(t)$, maximum value of $W$ must be less than $350$ Hz.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\columnwidth]{sol_1.png}
+\caption{Frequency plot}
+\label{freq}
+\end{figure}
 \end{document}
