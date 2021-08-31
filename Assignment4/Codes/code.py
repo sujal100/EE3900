@@ -3,18 +3,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 from coeffs import *
 
+
+# This function use least square to find minimum between lines
 def distance_from_two_lines(e1, e2, r1, r2):
     # e1, e2 = Direction vector
     # r1, r2 = Point where the line passes through
 
     # Find the unit vector perpendicular to both lines
     A = np.concatenate((e1,e2)).reshape(2,3).T
-    inverse = np.linalg.inv(np.dot(A.T, A))
+    inverse = np.linalg.inv(A.T @ A))
     B = r2 - r1
-    x = np.dot(np.dot(inverse, A.T),B)
+    x = (inverse @ A.T) @ B
     
     # Calculate distance
-    d = np.linalg.norm(np.dot(A,x)-B)
+    d = np.linalg.norm((A @ x) - B)
     return d
 
 # Plane points
@@ -47,9 +49,9 @@ ax.scatter(A2[0], A2[1], A2[2], 'o')
 ax.text(-1, -1, -1, "A1", color='red')
 ax.text(3, 5, 7, "A2", color='green')
 
-
+# Plotting
 plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.legend(loc='best')
-plt.grid()  # minor
+plt.grid()
 plt.show()
