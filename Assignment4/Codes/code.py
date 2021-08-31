@@ -11,7 +11,7 @@ def distance_from_two_lines(e1, e2, r1, r2):
 
     # Find the unit vector perpendicular to both lines
     A = np.concatenate((e1,e2)).reshape(2,3).T
-    inverse = np.linalg.inv(A.T @ A))
+    inverse = np.linalg.inv(A.T @ A)
     B = r2 - r1
     x = (inverse @ A.T) @ B
     
