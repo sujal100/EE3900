@@ -21,12 +21,10 @@ vcp = g+u
 A = np.vstack((V,vcp.T))
 b = np.append(vcm,-F)
 c = LA.lstsq(A,b,rcond=None)[0]
-#c = np.array(c)
 c = c.reshape(2,1)
 
 #Generating the parabola
 x_par = y + c
-
 
 #plotting the parabola
 plt.plot(x_par[0,:],x_par[1,:],label='$x^2 + 2$')
