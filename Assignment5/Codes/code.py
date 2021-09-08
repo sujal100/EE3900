@@ -1,24 +1,40 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+from numpy import linalg as LA
 
-# Create the vectors X and Y
-x = np.linspace(-5,5,300)
-y = x ** 2 + 2
+len = 500
 
-# Create the plot
-plt.plot(x,y,label='$x^2 + 2$')
+#Standard parabola
+y1 = np.linspace(-3,3,len)
+y2 = np.power(y1,2)
+y = np.vstack((y1,y2))
 
-# Add a title
-plt.title('')
+#Given parabola parameters
+V = np.array(([1,0],[0,0]))
+u = np.array([0,0])
+F = 2
 
-# Add X and y Label
-plt.xlabel('x axis')
-plt.ylabel('y axis')
+#Affine transformation
+g = -np.array([0,1])
+vcm = g-u
+vcp = g+u
+A = np.vstack((V,vcp.T))
+b = np.append(vcm,-F)
+c = LA.lstsq(A,b,rcond=None)[0]
+#c = np.array(c)
+c = c.reshape(2,1)
 
-# Add a grid
-plt.grid(alpha=1,linestyle='--')
+#Generating the parabola
+x_par = y + c
 
-# Add a Legenda
-plt.legend()
-# Show the plot
+
+#plotting the parabola
+plt.plot(x_par[0,:],x_par[1,:],label='$x^2 + 2$')
+
+#Plotting all points
+plt.plot(c[0], c[1], 'o')
+plt.text(c[0] * (1 + 0.1), c[1] * (1-0.1) , '$(0,2)$')
+
+plt.xlabel('$x$');plt.ylabel('$y$')
+plt.legend(loc='best');plt.grid()
 plt.show()
